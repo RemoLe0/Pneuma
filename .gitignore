@@ -1,0 +1,13 @@
+# Build artifacts
+build/
+*.bin
+*.elf
+*.map
+*.hex
+
+# Editor/OS clutter
+.DS_Store
+.vscode/ipch/
+
+# Add a secrets.h here (with a committed secrets.h.example alongside it)
+# if/when Pneuma ever needs credentials — it doesn't yet, by design.
