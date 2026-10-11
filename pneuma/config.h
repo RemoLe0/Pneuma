@@ -55,17 +55,23 @@
 #define DOUBLE_MS     200
 
 /* ── Sleep / activity ──────────────────────────────────────────────────── */
-#define ULTRA_SLEEP_MS  600000UL
+#define ULTRA_SLEEP_MS  120000UL
+
+/* How long a PAUSED session may sit idle before it's discarded back to
+ * STATE_IDLE. Deliberately longer than ULTRA_SLEEP_MS — once discarded,
+ * the normal idle-sleep check takes over on its own (see pneuma.ino),
+ * no separate sleep handling needed here. */
+#define SESSION_PAUSE_TIMEOUT_MS  300000UL
 
 /* ── Battery ───────────────────────────────────────────────────────────── */
 #define BAT_CHECK_INTERVAL_MS  30000
 #define BAT_LOW_THRESHOLD      15
 #define BAT_RECOVER_THRESHOLD  20
 
-/* Breathing patterns themselves now live in src/app/exercises.cpp, one
- * entry per selectable exercise (name, phases, cycle count) — see that
- * file to add, remove, or correct exercises. Nothing here anymore. */
+/* Sessions and their blocks (breathing patterns, bellows, body-scan)
+ * live in src/app/sessions.cpp — see that file to add, remove, or
+ * correct exercises/sessions. Nothing here anymore. */
 
-#define FIRMWARE_VERSION  "v0.2"
+#define FIRMWARE_VERSION  "v0.5"
 
 #endif // CONFIG_H
